@@ -1,0 +1,5 @@
+# In order to use this vault, you need to copy this file
+# and encrypt it with the following command:
+# ansible-vault encrypt ./vault/vault.yml
+---
+ansible_become_password: <your_sudo_password>

@@ -1,0 +1,11 @@
+---
+- name: Update packages to the latest version
+  hosts: fedora_servers
+  become: yes
+  vars_files:
+    - ../vault/vault.yml
+  tasks:
+    - name: Update all packages to the latest version
+      dnf:
+        name: '*'
+        state: latest
