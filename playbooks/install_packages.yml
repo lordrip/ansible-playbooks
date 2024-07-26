@@ -1,5 +1,5 @@
 ---
-- name: Install common packages for Linux
+- name: Install common packages for Fedora Linux
   hosts: fedora_servers
   become: yes
   vars_files:
@@ -7,6 +7,24 @@
   tasks:
     - name: Install packages
       dnf:
+        name:
+          - neofetch
+          - htop
+          - vim
+          - git
+          - zsh
+          - wget
+          - curl
+        state: latest
+
+- name: Install common packages for Debian Linux
+  hosts: debian_servers
+  become: yes
+  vars_files:
+    - ../vault/vault.yml
+  tasks:
+    - name: Install packages
+      apt:
         name:
           - neofetch
           - htop

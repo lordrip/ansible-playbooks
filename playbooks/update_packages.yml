@@ -1,11 +1,22 @@
 ---
-- name: Update packages to the latest version
+- name: Update packages to the latest version for Fedora Linux
   hosts: fedora_servers
   become: yes
   vars_files:
     - ../vault/vault.yml
   tasks:
-    - name: Update all packages to the latest version
+    - name: Update
       dnf:
+        name: '*'
+        state: latest
+
+- name: Update packages to the latest version for Debian Linux
+  hosts: debian_servers
+  become: yes
+  vars_files:
+    - ../vault/vault.yml
+  tasks:
+    - name: Update
+      apt:
         name: '*'
         state: latest
